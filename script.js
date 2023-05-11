@@ -6,7 +6,21 @@ const playOptions = {
   paper: document.getElementById('paper'),
   scissors: document.getElementById('scissors')
 
-}
+};
+
+const scoreBoard = {
+
+  wins: 0,
+  losses: 0,
+  draw: 0
+
+};
+
+const winsHtmlElement = document.getElementById('wins');
+const lossesHtmlElement = document.getElementById('losses');
+const drawsHtmlElement = document.getElementById('draws');
+
+let result;
 
 // when player picks rock
 
@@ -36,8 +50,6 @@ playOptions.rock.addEventListener('click', ()=> {
 
   // check for winner
 
-  let result;
-
   if(computerMove === 'rock') {
 
     result = 'Draw';
@@ -52,7 +64,27 @@ playOptions.rock.addEventListener('click', ()=> {
 
   }
 
-  // display game result with modal
+  // display game result
+
+  if(result === 'Win') {
+
+    scoreBoard.wins++;
+
+    winsHtmlElement.innerHTML = `Wins: ${scoreBoard.wins};`;
+
+  } else if(result === 'Lose') {
+
+    scoreBoard.losses++;
+    
+    lossesHtmlElement.innerHTML = `Losses: ${scoreBoard.losses};`;
+
+  } else if(result === 'Draw') {
+
+    scoreBoard.draw++;
+
+    drawsHtmlElement.innerHTML = `Draws: ${scoreBoard.draw};`;
+
+  }
 
   swal(
     result,
@@ -90,8 +122,6 @@ playOptions.paper.addEventListener('click', ()=> {
 
   // check for winner
 
-  let result;
-
   if(computerMove === 'paper') {
 
     result = 'Draw';
@@ -106,7 +136,27 @@ playOptions.paper.addEventListener('click', ()=> {
 
   }
 
-  // display game result with modal
+  // display game result
+
+  if(result === 'Win') {
+
+    scoreBoard.wins++;
+
+    winsHtmlElement.innerHTML = `Wins: ${scoreBoard.wins};`;
+
+  } else if(result === 'Lose') {
+
+    scoreBoard.losses++;
+    
+    lossesHtmlElement.innerHTML = `Losses: ${scoreBoard.losses};`;
+
+  } else if(result === 'Draw') {
+
+    scoreBoard.draw++;
+
+    drawsHtmlElement.innerHTML = `Draws: ${scoreBoard.draw};`;
+
+  }
 
   swal(
     result,
@@ -144,8 +194,6 @@ playOptions.scissors.addEventListener('click', ()=> {
 
   // check for winner
 
-  let result;
-
   if(computerMove === 'scissors') {
 
     result = 'Draw';
@@ -160,12 +208,46 @@ playOptions.scissors.addEventListener('click', ()=> {
 
   }
 
-  // display game result with modal
+  // display game result
+
+  if(result === 'Win') {
+
+    scoreBoard.wins++;
+
+    winsHtmlElement.innerHTML = `Wins: ${scoreBoard.wins};`;
+
+  } else if(result === 'Lose') {
+
+    scoreBoard.losses++;
+    
+    lossesHtmlElement.innerHTML = `Losses: ${scoreBoard.losses};`;
+
+  } else if(result === 'Draw') {
+
+    scoreBoard.draw++;
+
+    drawsHtmlElement.innerHTML = `Draws: ${scoreBoard.draw};`;
+
+  }
 
   swal(
     result,
     `You picked scissors, Computer picked ${computerMove}`,
     result === 'Win' ? "success" : "error"
   )
+
+});
+
+const restartGameHtmlButton = document.getElementById('restartGame');
+
+restartGameHtmlButton.addEventListener('click', ()=> {
+
+  scoreBoard.wins = 0;
+  scoreBoard.losses = 0;
+  scoreBoard.draw = 0;
+
+  winsHtmlElement.innerHTML = `Wins: ${scoreBoard.wins};`;
+  lossesHtmlElement.innerHTML = `Losses: ${scoreBoard.losses};`;
+  drawsHtmlElement.innerHTML = `Draws: ${scoreBoard.draw};`;
 
 });

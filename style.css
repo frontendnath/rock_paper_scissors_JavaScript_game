@@ -35,6 +35,76 @@ main {
 
 }
 
+@media screen and (max-width: 600px) {
+  .game_container {
+
+    width: 400px;
+    padding: 30px;
+
+  }
+
+  .mt-3 {
+
+    margin-top: 15px;
+
+  }
+
+  h1 {
+
+    font-size: 1.8rem;
+
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .game_container {
+
+    width: 350px;
+    padding: 20px;
+
+  }
+
+  .mt-3 {
+
+    margin-top: 10px;
+
+  }
+
+  h1 {
+
+    font-size: 1.5rem;
+
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .game_container {
+
+    width: 300px;
+    padding: 10px;
+
+  }
+
+  .mt-3 {
+
+    margin-top: 5px;
+
+  }
+
+  h1 {
+
+    font-size: 1.3rem;
+
+  }
+
+  .btn.btn-pick {
+
+    height: 80px !important;
+    width: 80px !important;
+
+  }
+}
+
 .text-center {
 
   text-align: center;
@@ -58,6 +128,7 @@ main {
 .btn {
 
   cursor: pointer;
+  outline: none !important;
 
 }
 
